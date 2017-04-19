@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
@@ -25,9 +26,9 @@ public class TwitterExtractionMain {
 		Configuration conf = new Configuration();
 		Job job = Job.getInstance(conf);
 		job.setJarByClass(TwitterExtractionMain.class);
-		job.setMapperClass(DataParser_Mapper.class);
-		job.setReducerClass(DataParser_Reducer.class);
-		job.setOutputKeyClass(Text.class);
+		job.setMapperClass(UserData_Mapper.class);
+		job.setReducerClass(UserData_Reducer.class);
+		job.setOutputKeyClass(IntWritable.class);
 		job.setOutputValueClass(Text.class);
 		job.setInputFormatClass(TextInputFormat.class);
 		job.setOutputFormatClass(TextOutputFormat.class);
