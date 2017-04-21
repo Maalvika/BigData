@@ -16,9 +16,11 @@ public class UserData_Mapper extends Mapper<LongWritable, Text, IntWritable, Tex
 		Gson gson = new Gson();
 		JsonObject twitterJSON = gson.fromJson(value.toString(), JsonObject.class).getAsJsonObject();
 		if (twitterJSON.has("created_at")) {
-			String userJSON = twitterJSON.get("user").getAsString();
+			String userJSON = twitterJSON.get("user").toString();
+			//System.out.println("user:"+userJSON);
 			TwitterUser user = gson.fromJson(userJSON, TwitterUser.class);
-			if (user.getLanguage().equalsIgnoreCase("en")) {
+			//System.out.println("user:"+user.toString());
+			if ( user.getLanguage().equalsIgnoreCase("en")) {
 				context.write(new IntWritable(user.getId()), new Text(user.toString()));
 
 			}
