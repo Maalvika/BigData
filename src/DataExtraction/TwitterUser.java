@@ -7,7 +7,7 @@ public class TwitterUser {
 	private String description;
 	private int followers_count;
 	private int friends_count;
-	private String language;
+	private String lang;
 	
 	public TwitterUser() {
 		
@@ -16,7 +16,7 @@ public class TwitterUser {
 		this.description = null;
 		this.followers_count = -1;
 		this.friends_count = -1;
-		this.language = null;
+		this.lang = null;
 	}
 	
 	public TwitterUser(int id, String name, String description, int followers_count, int friends_count,
@@ -27,7 +27,7 @@ public class TwitterUser {
 		this.description = description;
 		this.followers_count = followers_count;
 		this.friends_count = friends_count;
-		this.language = language;
+		this.lang = language;
 	}
 	public int getId() {
 		return id;
@@ -60,10 +60,10 @@ public class TwitterUser {
 		this.friends_count = friends_count;
 	}
 	public String getLanguage() {
-		return language;
+		return lang;
 	}
 	public void setLanguage(String language) {
-		this.language = language;
+		this.lang = language;
 	}
 	
 	@Override
@@ -72,7 +72,7 @@ public class TwitterUser {
 		sb.append(getId()+"\t");
 		sb.append(getName()+"\t");
 		sb.append(getDescription()+"\t");
-		sb.append(getFollowers_count()+"t");
+		sb.append(getFollowers_count()+"\t");
 		sb.append(getFriends_count()+"\t");
 		sb.append(getLanguage()+"\n");
 	
