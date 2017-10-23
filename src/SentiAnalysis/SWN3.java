@@ -11,8 +11,7 @@ import java.util.Vector;
 
 public class SWN3 {
 
-	private String pathToSWN = "/s/chopin/a/grad/mbachani/TermProject"
-			+ "/TwitterStreamAnalysis-BigData-master/sentiNet/SentiWordNet_3.0.0_20130122.txt";
+	private String pathToSWN = "D:\\booksCSU\\bigdata\\TermProject\\BigData\\sentiNet\\SentiWordNet_3.0.0_20130122.txt";
 	private Map<String, Double> dictionary;
 
 	public SWN3() {
@@ -138,10 +137,11 @@ public class SWN3 {
 			return Sentiment.VERY_NEGATIVE.name();
 		
 	}
-//	public static void main(String args[]) {
-//		SWN3 s = new SWN3();
-//		String sentiment = s.classifytweet("This shoe is not bad at all.");
-//		System.out.println("Sentiment:"+sentiment);
-//		
-//	}
+	public static void main(String args[]) {
+		SWN3 s = new SWN3();
+		String line = "This iphone is freakingly awesome.";
+		String sentiment = s.classifytweet(line);
+		System.out.println("Sample Tweet:"+line+"\nSentiment:"+sentiment);
+		
+	}
 }
